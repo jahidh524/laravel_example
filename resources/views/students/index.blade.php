@@ -236,7 +236,7 @@
     <!-- Edit Student Modal -->
     <div class="modal fade" id="editStudentModal" tabindex="-1" aria-labelledby="editStudentModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <form method="POST" action="{{ route('students.update', 0) }}" id="edit-form">
+            <form method="POST" id="edit-form">
                 @csrf
                 @method('PUT')
                 <input type="hidden" name="id" id="edit-id">

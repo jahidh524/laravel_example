@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('students.index');
 });
 Route::get('/login', function () {
     return view('login');
@@ -29,10 +29,10 @@ Route::post('/signup', [RegisterController::class, 'signup']);
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('/welcome', function () {
-    $result = DB::table('students')->get();
-    return view('welcome', compact('result'));
-})->middleware('auth');
+// Route::get('/welcome', function () {
+//     $result = DB::table('students')->get();
+//     return view('welcome', compact('result'));
+// })->middleware('auth');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {

@@ -8,22 +8,11 @@ use App\Models\User;
 
 class LoginController extends Controller
 {
-    /**
-     * Show the login form
-     *
-     * @return \Illuminate\View\View
-     */
     public function showLoginForm()
     {
         return view('/login');
     }
 
-    /**
-     * Handle login request
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function login(Request $request)
     {
         $request->validate([
@@ -47,7 +36,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
             
             // Redirect to welcome page
-            return redirect()->intended('/welcome');
+            return redirect()->intended('/students.index');
         }
 
         // Authentication failed
